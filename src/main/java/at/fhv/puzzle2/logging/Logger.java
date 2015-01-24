@@ -38,6 +38,12 @@ public class Logger {
         }
     }
 
+    public void close() throws IOException {
+        for(LogSink sink : _sinkList) {
+            sink.close();
+        }
+    }
+
     public static void appendLogSink(LogSink logSink) {
         _sinkList.add(logSink);
     }

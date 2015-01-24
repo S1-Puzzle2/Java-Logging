@@ -4,4 +4,5 @@ import java.io.IOException;
 
 public interface LogSink {
     public void logMessage(String message) throws IOException;
+    public void close() throws IOException;
 }

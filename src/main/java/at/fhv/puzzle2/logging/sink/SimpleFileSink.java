@@ -2,7 +2,9 @@ package at.fhv.puzzle2.logging.sink;
 
 import at.fhv.puzzle2.logging.Exception.LogFileNotWritableException;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.charset.Charset;
 
 public class SimpleFileSink implements LogSink {
@@ -24,5 +26,10 @@ public class SimpleFileSink implements LogSink {
         }
 
         _outputStream.write((message + "\n").getBytes(Charset.forName("UTF-8")));
+    }
+
+    @Override
+    public void close() throws IOException {
+        _outputStream.close();
     }
 }
