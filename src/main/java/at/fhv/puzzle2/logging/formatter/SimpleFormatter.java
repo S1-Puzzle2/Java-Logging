@@ -8,7 +8,7 @@ import java.util.Date;
 public class SimpleFormatter implements LogFormatter {
     @Override
     public String formatLogMessage(LogLevel logLevel, String tag, String message, Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
         return String.format("%s - %s - %s: %s", sdf.format(date), LogLevel.levelToString(logLevel), tag, message);
     }
 }
