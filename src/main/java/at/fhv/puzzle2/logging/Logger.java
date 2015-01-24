@@ -59,6 +59,10 @@ public class Logger {
         logMessage(LogLevel.ERROR, tag, message);
     }
 
+    public void trace(String tag, String message) {
+        logMessage(LogLevel.TRACE, tag, message);
+    }
+
     private static Logger _instance;
     private static void createLogger(LogFormatter formatter, LogLevel minLogLevel) {
         _instance = new Logger(formatter, minLogLevel);
