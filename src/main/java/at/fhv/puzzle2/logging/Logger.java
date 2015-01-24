@@ -10,12 +10,11 @@ import java.util.List;
 
 public class Logger {
     private LogFormatter _formatter;
-    private final List<LogSink> _sinkList;
+    private static final List<LogSink> _sinkList = new LinkedList<>();
     private final LogLevel _minLogLevel;
 
     private Logger(LogFormatter formatter, LogLevel minLogLevel) {
         _formatter = formatter;
-        _sinkList = new LinkedList<>();
 
         this._minLogLevel = minLogLevel;
     }
@@ -39,7 +38,7 @@ public class Logger {
         }
     }
 
-    public void appendLogSink(LogSink logSink) {
+    public static void appendLogSink(LogSink logSink) {
         _sinkList.add(logSink);
     }
 
@@ -64,7 +63,7 @@ public class Logger {
     }
 
     private static Logger _instance;
-    private static void createLogger(LogFormatter formatter, LogLevel minLogLevel) {
+    public static void createLogger(LogFormatter formatter, LogLevel minLogLevel) {
         _instance = new Logger(formatter, minLogLevel);
     }
 
