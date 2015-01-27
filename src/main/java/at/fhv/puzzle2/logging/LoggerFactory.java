@@ -9,7 +9,7 @@ import at.fhv.puzzle2.logging.sink.ConsoleSink;
 import at.fhv.puzzle2.logging.sink.LogSink;
 import at.fhv.puzzle2.logging.sink.SimpleFileSink;
 
-class LoggerFactory {
+public class LoggerFactory {
     public static LogFormatter createFormatter(String formatterName) throws LogFormatterUnknownException {
         if(formatterName.equals("SimpleFormatter")) {
             return new SimpleFormatter();
