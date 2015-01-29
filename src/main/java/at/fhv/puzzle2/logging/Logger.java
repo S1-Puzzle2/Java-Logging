@@ -19,11 +19,6 @@ public class Logger {
         this._minLogLevel = minLogLevel;
     }
 
-    public void setFormatter(LogFormatter formatter) {
-        _formatter = formatter;
-    }
-
-
     public void close() throws IOException {
         for(LogSink sink : _sinkList) {
             sink.close();
