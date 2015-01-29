@@ -23,6 +23,17 @@ public class Logger {
         _formatter = formatter;
     }
 
+
+    public void close() throws IOException {
+        for(LogSink sink : _sinkList) {
+            sink.close();
+        }
+    }
+
+    public static void appendLogSink(LogSink logSink) {
+        _sinkList.add(logSink);
+    }
+
     public synchronized void logMessage(LogLevel level, String tag, String message) {
         if(LogLevel.shouldLog(_minLogLevel, level)) {
 
@@ -36,16 +47,6 @@ public class Logger {
                 e.printStackTrace();
             }
         }
-    }
-
-    public void close() throws IOException {
-        for(LogSink sink : _sinkList) {
-            sink.close();
-        }
-    }
-
-    public static void appendLogSink(LogSink logSink) {
-        _sinkList.add(logSink);
     }
 
     public void debug(String tag, String message) {
