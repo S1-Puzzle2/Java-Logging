@@ -14,8 +14,15 @@ public class SimpleFileSink implements LogSink {
     public SimpleFileSink(String path) throws LogFileNotWritableException {
         _logFile = new File(path);
 
-        if(_logFile.canWrite()) {
-            throw new LogFileNotWritableException(path);
+        if(_logFile.exists()) {
+            if(!_logFile.canWrite()) {
+                throw new LogFileNotWritableException(path);
+            }
+        } else {
+            File directory = _logFile.getParentFile();
+            if(!directory.canWrite()) {
+                throw new LogFileNotWritableException(path);
+            }
         }
     }
 
