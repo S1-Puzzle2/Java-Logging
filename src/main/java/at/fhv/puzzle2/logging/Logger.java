@@ -64,24 +64,24 @@ public class Logger {
         logMessage(LogLevel.TRACE, tag, message);
     }
 
-    public void debug(String tag, LoggedObject loggedObject) {
-        logMessage(LogLevel.DEBUG, tag, loggedObject.getLogString());
+    public void debug(String tag, String text, LoggedObject loggedObject) {
+        logMessage(LogLevel.DEBUG, tag, text + " " +loggedObject.getLogString());
     }
 
-    public void info(String tag, LoggedObject loggedObject) {
-        logMessage(LogLevel.INFO, tag, loggedObject.getLogString());
+    public void info(String tag, String text, LoggedObject loggedObject) {
+        logMessage(LogLevel.INFO, tag, text + " " +loggedObject.getLogString());
     }
 
-    public void warn(String tag, LoggedObject loggedObject) {
-        logMessage(LogLevel.WARN, tag, loggedObject.getLogString());
+    public void warn(String tag, String text, LoggedObject loggedObject) {
+        logMessage(LogLevel.WARN, tag, text + " " +loggedObject.getLogString());
     }
 
-    public void error(String tag, LoggedObject loggedObject) {
-        logMessage(LogLevel.ERROR, tag, loggedObject.getLogString());
+    public void error(String tag, String text, LoggedObject loggedObject) {
+        logMessage(LogLevel.ERROR, tag, text + " " +loggedObject.getLogString());
     }
 
-    public void trace(String tag, LoggedObject loggedObject) {
-        logMessage(LogLevel.TRACE, tag, loggedObject.getLogString());
+    public void trace(String tag, String text, LoggedObject loggedObject) {
+        logMessage(LogLevel.TRACE, tag, text + " " + loggedObject.getLogString());
     }
 
     private static Logger _instance;
