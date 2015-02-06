@@ -1,6 +1,8 @@
 package at.fhv.puzzle2.logging;
 
 
+import java.util.Optional;
+
 public enum LogLevel {
     TRACE(1),
     DEBUG(2),
@@ -24,37 +26,37 @@ public enum LogLevel {
         return minLevel._logLevel <= level._logLevel;
     }
 
-    public static String levelToString(LogLevel level) {
+    public static Optional<String> levelToString(LogLevel level) {
         switch (level) {
             case DEBUG:
-                return DEBUG_STRING;
+                return Optional.of(DEBUG_STRING);
             case INFO:
-                return INFO_STRING;
+                return Optional.of(INFO_STRING);
             case WARN:
-                return WARN_STRING;
+                return Optional.of(WARN_STRING);
             case ERROR:
-                return ERROR_STRING;
+                return Optional.of(ERROR_STRING);
             case TRACE:
-                return TRACE_STRING;
+                return Optional.of(TRACE_STRING);
             default:
-                return null;
+                return Optional.empty();
         }
     }
 
-    public static LogLevel stringToLevel(String level) {
+    public static Optional<LogLevel> stringToLevel(String level) {
         switch (level) {
             case DEBUG_STRING:
-                return DEBUG;
+                return Optional.of(DEBUG);
             case INFO_STRING:
-                return INFO;
+                return Optional.of(INFO);
             case WARN_STRING:
-                return WARN;
+                return Optional.of(WARN);
             case ERROR_STRING:
-                return ERROR;
+                return Optional.of(ERROR);
             case TRACE_STRING:
-                return TRACE;
+                return Optional.of(TRACE);
         }
 
-        return null;
+        return Optional.empty();
     }
 }
