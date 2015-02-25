@@ -26,20 +26,20 @@ public enum LogLevel {
         return minLevel._logLevel <= level._logLevel;
     }
 
-    public static Optional<String> levelToString(LogLevel level) {
+    public static String levelToString(LogLevel level) {
         switch (level) {
             case DEBUG:
-                return Optional.of(DEBUG_STRING);
+                return DEBUG_STRING;
             case INFO:
-                return Optional.of(INFO_STRING);
+                return INFO_STRING;
             case WARN:
-                return Optional.of(WARN_STRING);
+                return WARN_STRING;
             case ERROR:
-                return Optional.of(ERROR_STRING);
+                return ERROR_STRING;
             case TRACE:
-                return Optional.of(TRACE_STRING);
+                return TRACE_STRING;
             default:
-                return Optional.empty();
+                return "Unkown Loglevel";
         }
     }
 
